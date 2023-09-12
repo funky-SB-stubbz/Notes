@@ -802,7 +802,119 @@ A while loop looks like this-
 
 `The for...in statement iterates a specified variable over all the enumerable properties of an object. For each distinct property, JavaScript executes the specified statements.`
 
+                for (variable in object)
+                        statement
 
+for example
+
+
+                function dumpProps(obj, objName) {
+                        let result = "";
+                        for (const i in obj) {
+                        result += `${objName}.${i} = ${obj[i]}<br>`;
+                }
+                        result += "<hr>";
+                        return result;
+                }
+
+**Although it may be tempting to use this as a way to iterate over Array elements, the for...in statement will return the name of your user-defined properties in addition to the numeric indexes.Therefore, it is better to use a traditional for loop with a numeric index when iterating over arrays, because the for...in statement iterates over user-defined properties in addition to the array elements, if you modify the Array object (such as adding custom properties or methods).**
+
+
+### For.......of Loop
+
+`The for...of statement creates a loop Iterating over iterable objects (including Array, Map, Set, arguments object and so on), invoking a custom iteration hook with statements to be executed for the value of each distinct property.`
+
+                for (variable of object)
+                          statement
+
+
+for example
+
+                const arr = [3, 5, 7];
+                        arr.foo = "hello";
+
+                        for (const i in arr) {
+                        console.log(i);
+                }
+                // "0" "1" "2" "foo"
+
+                for (const i of arr) {
+                        console.log(i);
+                }
+                // Logs: 3 5 7
+
+
+## Javascript Behind the Scenes
+
+`Javascript is a high-Level, Prototype-based Object-Oriented, Multi-Paradigm, Interpreted or just-in-time compiled, Dynamic, Single-Threaded, Garbage Collected Programming language with first-class functions and a non-blocking event loop concurrency model`
+
+* High Level Language is a Language wherein memory management is not manual. 
+* Javascript has a garbage collector which frees memory taken up by variables and objects after they have served their purpose.
+* Interpreted or just in time compiled in the sense that the code is compiled into machine code just before execution or is interepreted.
+* A Paradigm is an approach and mindset of stucturing code,which will direct your coding style and technique. Javascript is a multi paradigm Language The 3 types of paradigms are.
+
+        1) Procedural programming.
+        2) Object oriented programming
+        3) Functional programming
+
+* Prototype based Object oriented language means that everything apart from primitive values are objects.
+* Javscript is a language with first class language in the sense that functions are considered objects and hence can be passed into functions and also return functions
+* Javascript is a dynamically typed language which means that a variable can hold values of more than one data type throughout its runtime. Hence the type of variable is dynamic.
+* Typescript adds static type to javascript.
+* Concurrency model is how the Javascript engine handles multiple tasks happening at the same time. 
+* We need this because Javascript runs in one single thread so it can only do one thing at a time.
+* If we have a task that takes time to execute such as fetching data from a server it would block the execution of the single thread until the task is completed hence we need non-blocking behaviour in our language.
+* By using an event loop Javascript takes long running tasks and executes them in the background and puts them back in the main thread once they are finished.
+
+### Javascript engine and runtime
+
+* Every browser has its own javascript engine but the most popular one in is the v8 engine used in chrome.
+
+* Node js is also a javascript runtime however its not available in browser
+
+![](jsEngine.png)
+
+* The call stack is the place where our code is executed using the Execution context.
+* The heap is an unstructured memory pool where all our user created objects are stored.
+
+### Compilation v/s Interpretation v/s Just-In-Time (JIT) compilation
+
+* Compilation is where the entire code is converted into machine code at once and is written to a binary file that  can be executed by a computer.
+
+* Interpretation is when the interpreter runs through the source code and executes it line by line.
+
+Interpreted languages have higher execution time and are much slower than compiled languages.
+
+* JIT Compilation is where the entire code is converted into machine code at once and the n executed immediately.
+
+![](CompvIntvJIT.png)
+
+
+**JAVASCRIPT IS A JIT COMPILED LANGUAGE**
+
+### JIT Compilation process
+
+1. First code is parsed and converted into a data structure called the Abstract Syntax Tree (AST). This works by splitting up keywords and variable names and places them in the tree.
+
+2. Next, the generated AST is then compiled to machine code.
+
+3. Then, the code is executed immediately. During execution the code is continuously updated with  Optimized code, thus making engines such as V8 engines are quick.
+
+
+### Runtime in a Browser
+
+`A Run Time Environment contains all the things necessary to run Javascript`
+
+Browser runtime contains-
+
+1. Javascript Engine.
+2. Web APIs such as DOM, Timers, Fetch API these are not a part of the Javascript Language but they are provided by the Web APIs in the Browser Runtime.
+3. Callback Queue is where all the callback functions are stored until they are called inside the function that is being executed. When they are called the event loop takes a function from the callback queue and places it in the call stack.
+
+
+### Runtime outside a browser (Node js)
+
+The Nodejs runtime is similar to the browser runtime but it doesnt contain any Web APIs. Instead it contains C++ bindings and a Thread Pool
 
 
 
