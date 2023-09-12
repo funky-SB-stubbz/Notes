@@ -872,7 +872,7 @@ for example
 
 * Node js is also a javascript runtime however its not available in browser
 
-![](images/jsEngine.png)
+![](JSimages/jsEngine.png)
 
 * The call stack is the place where our code is executed using the Execution context.
 * The heap is an unstructured memory pool where all our user created objects are stored.
@@ -887,7 +887,7 @@ Interpreted languages have higher execution time and are much slower than compil
 
 * JIT Compilation is where the entire code is converted into machine code at once and the n executed immediately.
 
-![](images/CompvIntvJIT.png)
+![](JSimages/CompvIntvJIT.png)
 
 
 **JAVASCRIPT IS A JIT COMPILED LANGUAGE**
