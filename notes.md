@@ -717,7 +717,90 @@ Define the object type by writing a constructor function. There is a strong conv
 ### Methods
 `Methods in javascript are properties that contain functions. They can hence be used to perform tasks on that object`
 
--  We can 
+-  We can add functions as properties in javascript objects. This is due to the fact that in Javascript functions are considered expressions.
+
+                //To add methods to objects
+
+                const obj={
+                        functionName: function(){
+                                //function expression
+                        }
+                }
+
+                //ex-
+
+                const imaginaryNumber={
+                        realPart: 10,
+                        imaginaryPart:2,
+                        printNumber: function(){
+                                console.log(`${realPart}+i${imaginaryPart}`);
+                        }
+                }
+
+                //to use printNumber Method
+
+                imaginaryNumber.printNumber();
+
+
+## Loops
+
+`Loops are used to perform repetitive logic or tasks`
+
+### For Loops
+
+`A for loop repeats until a specified condition evaluates to false. The JavaScript for loop is similar to the Java and C for loop.`
+
+A for statement looks as follows:
+
+                for (initialization; condition; afterthought)
+                  statement
+
+                  //example 
+
+                for(let i=0;i<10;i++){
+                        console.log(i);
+                }
+
+### Do.....While Loop
+
+`The do...while statement repeats until a specified condition evaluates to false like a for loop with one fundamental difference i.e the do while loop is guarenteed to execute atleast once`
+
+The do while loop looks like the following-
+
+                do
+                 statement
+                while (condition);
+
+                //example
+
+                let i = 0;
+                do {
+                 i += 1;
+                 console.log(i);
+                } while (i < 5);
+
+### While Loop
+
+`A while statement executes its statements as long as a specified condition evaluates to true. While loops are often used when the number of possible iterations are not known. When the number of iterations possible are known a for loop is preffered`
+
+A while loop looks like this-
+
+                while (condition)
+                        statement
+
+                //example
+
+                let n = 0;
+                let x = 0;
+                while (n < 3) {
+                        n++;
+                        x += n;
+                }
+
+
+### For.....In Loop
+
+`The for...in statement iterates a specified variable over all the enumerable properties of an object. For each distinct property, JavaScript executes the specified statements.`
 
 
 
