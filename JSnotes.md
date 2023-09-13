@@ -805,7 +805,7 @@ A while loop looks like this-
                 for (variable in object)
                         statement
 
-for example
+for example-
 
 
                 function dumpProps(obj, objName) {
@@ -916,8 +916,44 @@ Browser runtime contains-
 
 The Nodejs runtime is similar to the browser runtime but it doesnt contain any Web APIs. Instead it contains C++ bindings and a Thread Pool
 
+### Execution Contexts and the Call Stack
+
+`Execution context (EC) is an environment in which a piece of JavaScript is executed. Stores all the necessary information for some code to be executed`
+
+- After compilation a Global execution context is created for Top level code. There is exactly one Global execution context (EC). It is a default context created for code that is not inside any function.
+- Next top level code is executed inside the global EC.
+- When functions are called a new EC is created that contains all the variables and information necessary to execute that function.
+- These make up the Call stack.
+
+What is inside a call stack??
+1. Variable Environment- contains info about all the variables declared and used inside the function. Variables outside the function also can be used. Also contains the arguments object(keyword)
+
+2. Scope chain- Contains information about the scope of each variable and function.
+
+3. this keyword.
+
+**All these are generated during CREATION phase**
+
+**EC belonging to arrow function dont get the arguments keyword and the this Keyword**
+
+`The Call Stack is a memory space wherein each execution contexts is stacked one upon another. When ever a new EC is created it is placed on top off the call stack and as soon as the execution of the function is over it is popped of the stack.`
+
+#### Scope Chain
+`Scoping defines where we can access a certain variable and where we cannot`
+- There are 3 types of scopes in Javascript
+1. Global Scope- contains all the variables that are not declared in any function or block.
+2. Function Scope- Contains all the variables that have been declared within that particular function.
+3. Block scope- its an ES6 feature containing all the variables declared within a curly braces {} ex- in an if statement or a loop.
+
+- `Let and const are block scoped whereas var is function scoped which means that even if a variable is declared using var within a block it is still accessible within that function unlike let and const.`
+
+- In Javascript we have Lexical scoping, so the rules of where we can access variables are based on exactly where in the code they are declared.
+- Every scope always has access to all the variables from from all its outer scopes.**This is called the Scope Chain**.
+- When a variable is out of the current scope the engine looks up in the scope chain until it finds the variable its looking for. This is called variable lookup.
+- Scope chain is a onew way street a scope will never ever have access to the variables of an inner scope.
+- The scope chain of a certain scope isequal to adding up together all the varaiable environments of all the parent scopes.
+- Scope chain has nothing to do with the orrder in which functions were called.
 
 
-
-
+![](JSimages/scopeChain.png)
 
