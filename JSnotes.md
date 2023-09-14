@@ -172,6 +172,8 @@ put 'use strict' at the start of the code
 ## Functions
 `Functions are pieces of code that are used to perform a certain task and these pieces are re-usable.`
 
+**Functions are block scoped in strict mode and function scoped in sloppy mode of javascript**
+
 * Functions also help improve readability and to increase code quality.
 
         // function definition
@@ -235,6 +237,14 @@ however there is a key difference between function definition method and functio
         // this function takes in a parameter and returns the parameter multiplied by 2
 
 **arrow functions are used as they reduce the syntax to be written**
+
+### Regular functions v/s Arrow functions
+
+1. No *arguments* object in arrow functions.
+2. Arrow funtions donot create their own *this* binding.
+3. Arrow functions cannot be used as a constructor.
+4. Arrow functions cannot be declared.
+5. Arrow functions cannot be used before initialization (i.e they are not *hoisted*).
 
 
 ### Functions calling other Functions
@@ -956,4 +966,38 @@ What is inside a call stack??
 
 
 ![](JSimages/scopeChain.png)
+
+
+### Hoisting and TDZ
+
+`Hoisting makes some types of variables accessible or usable int code before they are actually declared, i.e Variables are liftedto the top of their scope`
+
+`Behind the scenes the code is scanned for variable declarations and for each variable, a new property is created in the variable environment object`
+
+The biggest advantage of Hoisting is that functions can be used before they are declared.
+
+
+What all variables are hoisted?
+1. function declarations.
+2. variables declared with *var*.
+
+What all are not hoisted?
+1. variables declared with *let* and *const*.
+2. function expression and arrow functions
+
+**The variables declared with the *let* and *const* lie in the Temporal Dead Zone(TDZ) until they are declared and hence cannot be used before declaration**
+
+`The TDZ is the part of code within the scope of a variable in which the variable cannot be accessed or used. If the variable is used before the declaration that is within the TDZ the engine gives a ReferenceError.`
+
+TDZ makes it easier to avoid and catch errors that could possibly occur by using variables before they are declared
+
+### The *this* Keyword
+
+`The this keyowrd is a special variable that is created for every execution context(every function) and it takes the value or points to the "Owner" of that funtion in which the this keyword is used`
+
+**This is not static. It depends on how the function is called, and its value is only assigned when the function is actually called**
+
+- For methods belonging to objects *this* points to the object calling the method.
+- For normal function calls, in strict mode *this* is equal to undefined and in sloppy mode it points to the window (if used in the browser).
+
 
