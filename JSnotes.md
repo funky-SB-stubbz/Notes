@@ -17,17 +17,17 @@ quotees.
 
 
 ## Let,Const, Var
-1)let- 
+1) let- 
 * used to declare variables that can be re-assigned (mutated) runtime of program.
 * used when we need to declare a non initialized variable.
 * use only when really sure of change in value.
             
-2)const-
+2) const-
 * used to declare variables that cannot be re-assigned during runtime(immutable)
 * we cannot declare empty, unitialized const variables.
 * use const preferably.
             
-3)var-
+3) var-
 * Old way of defining variables.
 * works almost similar to let.
 * usage should be avoided.           
@@ -1001,3 +1001,73 @@ TDZ makes it easier to avoid and catch errors that could possibly occur by using
 - For normal function calls, in strict mode *this* is equal to undefined and in sloppy mode it points to the window (if used in the browser).
 
 
+## Object Oriented Programming
+
+`A programming paradigm based on the concept of objects. Objects may contain data (properties) or code (methods), by using Object oriented prograamming we can pack the data and the corresponding behaviour into one block.`
+
+Interactions happen through API's. OOP was developed with the goal of organising the code, to make it more flexible and easier to maintain.
+
+- `A class is a blueprint to an object.`
+- `An instancs is an object built using the blueprint given by the class`
+
+### 4 Pillars of OOPs
+
+- Abstraction- `To hide all the details that are unnessecary. Abstraction makes each class operate like a black box`.
+
+- Encapsulation- `To encapsulate or pack properties and code into a package`
+
+- Inheritance- `Classes can have parent classes. Child classes will inherit all of the behavior and attributes of the parent class. Child classes can then choose to overwrite some of those as necessary.`
+
+- Polymorphism- `Polymorphism is the ability to perform many things in many ways. The word Polymorphism is from two different Greek words- poly and morphs. “Poly” means many, and “Morphs” means forms. So polymorphism means many forms. The polymorphism can be present in the case of inheritance also. The functions behave differently based on the actual implementation.`
+
+### OOP in Javascript
+
+- Objects are linked to a prototype object.
+
+- Prototypal inheritance is where the prototype contains methods that are accessible to all objects linked to that prototype.
+
+- behaviour is delegated to the linked prototype.
+
+There are three ways to create objects programmatically.
+
+1. Constructor Functions
+
+- Technique to create objects from a function.
+- This is how built in objects like arrays, sets and maps are created.
+
+2. ES6 Classes
+
+- Modern alternative to constructor function syntax.
+- BTS  ES6 Classes work exactly like constructor functions.
+- ES6 Classes donot behave like classes in classical OOP.
+
+3. Object.create()
+- Easiest way of linking an object to a prototype object.
+
+
+### The *new* keyword
+
+When a new keyord is used an empty object {} is created and the *this* keyword is made to point to it in the EC.
+
+### Constructor function.
+
+**Arrow functions cannot be used as they dont have this keyword**
+
+        const Person = function(firstname,birthYear){
+                this.firstname=firstname;
+                this.birthYear=birthYear;
+                // The above code is used to link the object to a prototype
+        }
+
+        const Luke = new Person('Luke', 1996);
+
+        console.log(Luke);
+        // Logs {firstname:'Luke',birthYear:1996}
+
+
+*instanceof* Operator can be used to check if the objects is an instance of a class created by a constructor function.
+
+        console.log(Luke instanceof Person);
+        //Logs true
+
+**Bad practice to use constructor method to create classes with in built methods**
