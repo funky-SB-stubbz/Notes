@@ -99,7 +99,7 @@ There are different types of JavaScript operators:
             >>	    right shift	            5 >> 1	0101 >> 1	0010	  2
             >>>	    unsigned right shift	5 >>> 1	0101 >>> 1	0010	  2
 
-### Ternary Operator=
+### Ternary Operator-
         logic? ifTrue: ifFalse;
 
 
